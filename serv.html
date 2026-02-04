@@ -18,6 +18,40 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            position: relative;
+        }
+
+        /* Image de fond fixe */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://raw.githubusercontent.com/MultiCraft-France/multicraft-fr-site/refs/heads/main/images/fo1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -2;
+        }
+
+        /* Overlay pour assombrir l'arrière-plan au scroll */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0);
+            transition: background 0.3s ease;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        body.scrolled::before {
+            background: rgba(0, 0, 0, 0.25);
         }
 
         /* Animations */
@@ -542,7 +576,7 @@
                 <span class="card-icon">🖼️</span>
                 Galerie
             </h2>
-            <p>Découvrez quelques aperçus de notre serveur !</p>
+            <p>Découvrez quelques aperçus de notre serveur</p>
         </div>
 
         <div class="gallery">
@@ -585,7 +619,7 @@
         <div class="popup">
             <button class="popup-close" id="closeMentions">×</button>
             <h2>Mentions légales</h2>
-            <p>Contact : creatif.france@outlook.com</p>
+            <p>Contact : <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3b58495e5a4f525d155d495a55585e7b544e4f5754545015585456">[email&#160;protected]</a></p>
             <p>Droits d'auteurs : Tous droits réservés. MultiCraft est une marque déposée de MultiCraft Studio OÜ. Nous ne sommes ni autorisés ni affiliés par MultiCraft Studio OÜ.</p>
         </div>
     </div>
@@ -604,7 +638,16 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Détection du scroll pour assombrir l'arrière-plan
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                document.body.classList.add('scrolled');
+            } else {
+                document.body.classList.remove('scrolled');
+            }
+        });
+
         // Menu burger pour mobile
         const burger = document.getElementById('burger');
         const navMenu = document.getElementById('navMenu');
