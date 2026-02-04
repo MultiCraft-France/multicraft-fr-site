@@ -198,6 +198,14 @@
             line-height: 1.6;
         }
 
+        /* Carte avec image de fond */
+        .card-with-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('images/fo1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
         .btn {
             display: inline-block;
             padding: 0.875rem 2rem;
@@ -429,7 +437,7 @@
             <p>Communauté non-officielle orientée autour du jeu MultiCraft pour les francophones.</p>
         </div>
 
-        <div class="card" style="background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('http://multicraft-fr.netlify.app/images/fo1.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        <div class="card card-with-bg">
             <h2>
                 <span class="card-icon">🎮</span>
                 Notre serveur MultiCraft
@@ -474,7 +482,7 @@
         <div class="popup">
             <button class="popup-close" id="closeMentions">×</button>
             <h2>Mentions légales</h2>
-            <p>Contact : creatif.france@outlook.com</p>
+            <p>Contact : <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ccafbea9adb8a5aae2aabeada2afa98ca3b9b8a0a3a3a7e2afa3a1">[email&#160;protected]</a></p>
             <p>Droits d'auteurs : Tous droits réservés. MultiCraft est une marque déposée de MultiCraft Studio OÜ. Nous ne sommes ni autorisés ni affiliés par MultiCraft Studio OÜ.</p>
         </div>
     </div>
@@ -493,7 +501,7 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Menu burger pour mobile
         const burger = document.getElementById('burger');
         const navMenu = document.getElementById('navMenu');
@@ -540,14 +548,3 @@
         mentionsPopup.addEventListener('click', (e) => {
             if (e.target === mentionsPopup) {
                 mentionsPopup.classList.remove('active');
-            }
-        });
-
-        privacyPopup.addEventListener('click', (e) => {
-            if (e.target === privacyPopup) {
-                privacyPopup.classList.remove('active');
-            }
-        });
-    </script>
-</body>
-</html>
